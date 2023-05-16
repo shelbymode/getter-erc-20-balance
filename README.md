@@ -1,6 +1,6 @@
-# Description
+## Description
 
-This npm package provides a class called `getter-erc-20-balance` that allows you to retrieve the balance of an ERC20 contract for a given wallet address.
+This npm package provides a class called `ERC20Balance` that allows you to retrieve the balance of an ERC20 contract for a given wallet address using `getERC20BalanceOf` method.
 
 ## Installation
 
@@ -9,6 +9,11 @@ npm install getter-erc-20-balance
 ```
 
 ## API
+
+To import `ERC20Balance` class use: 
+```js
+import { ERC20Balance } from 'getter-erc-20-balance'
+```
 
 The `ERC20Balance` class provides the following method:
 
@@ -20,7 +25,3 @@ This asynchronous method retrieves the balance of an ERC20 contract for the spec
 3. `provider` (JsonRpcProvider): An instance of JsonRpcProvider from the ethers.js library, connected to an Ethereum JSON-RPC provider.
 
 Returns a Promise that resolves to the balance as a string.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details...

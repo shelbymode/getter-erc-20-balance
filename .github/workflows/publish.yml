@@ -5,16 +5,11 @@ on:
     types:
       - completed
   push:
-    branches: ['main', 'develop']
+    branches: ['main']
   pull_request:
-    branches: ['main', 'develop']
-
+    branches: ['main']
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-
-permissions:
-  contents: write  # To push a branch 
-  pull-requests: write  # To create a PR from that branch
 
 jobs:
   publish:
@@ -22,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - uses: pnpm/action-setup@v2
         with:
           version: 7
@@ -31,13 +24,8 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
-
-      - run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          registry-url: https://registry.npmjs.org
+      - name: 🚀 publish
+        run: npm publish --access public
+        env: 
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

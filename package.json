@@ -1,6 +1,6 @@
 {
   "name": "getter-erc-20-balance",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": "Small utility package aims you to get balance of your erc20 contact",
   "author": "",
   "license": "ISC",
@@ -21,7 +21,6 @@
     "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
     "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.1",
     "jest": "^29.5.0",
