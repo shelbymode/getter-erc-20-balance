@@ -25,3 +25,5 @@ This asynchronous method retrieves the balance of an ERC20 contract for the spec
 3. `provider` (JsonRpcProvider): An instance of JsonRpcProvider from the ethers.js library, connected to an Ethereum JSON-RPC provider.
 
 Returns a Promise that resolves to the balance as a string
+
+Good luck!
