@@ -1,6 +1,10 @@
 name: Release
 
 on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
   push:
     branches: ['main']
   pull_request:
@@ -11,6 +15,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: write # to create release 
       issues: write # to post issue comments
@@ -28,14 +33,13 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: npm ci && npm run release
+          publish: npm run release
         env:
-          GITHUB_TOKEN: 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
-          NPM_TOKEN: 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
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
