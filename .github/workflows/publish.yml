@@ -1,3 +1,8 @@
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
 name: Publish
 on:
   workflow_run:
@@ -5,8 +10,10 @@ on:
     types:
       - completed
   push:
-    branches:
-      - "main"
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
