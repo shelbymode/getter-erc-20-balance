@@ -1,6 +1,6 @@
 {
   "name": "getter-erc-20-balance",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Small utility package aims you to get balance of your erc20 contact",
   "author": "shelbymode",
   "license": "ISC",
