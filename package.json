@@ -1,0 +1,39 @@
+{
+  "name": "getter-erc-20-balance",
+  "version": "0.0.16",
+  "description": "Small utility package aims you to get balance of your erc20 contact",
+  "author": "shelbymode",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shelbymode/getter-erc-20-balance"
+  },
+  "homepage": "https://www.npmjs.com/package/getter-erc-20-balance#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "tsc",
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "npm run build && changeset publish"
+  },
+  "dependencies": {
+    "ethers": "^6.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4",
+    "@changesets/cli": "^2.26.1",
+    "@jest/globals": "^29.5.0",
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "tsup": "^6.7.0"
+  }
+}
